@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Produto } from './produto/entities/produto.entity';
-import { ProdutoModule } from './produto/entities/produto.module';
-import { Categoria } from './categoria/entities/categoria.entity';
-import { CategoriaModule } from './categoria/categoria.module';
+import { Postagem } from './postagem/entities/postagem.entity';
+import { PostagemModule } from './postagem/postagem.module';
+import { Tema } from './tema/entities/tema.entity';
+import { TemaModule } from './tema/tema.module';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -12,13 +13,13 @@ import { CategoriaModule } from './categoria/categoria.module';
       port: 3306,
       username: 'root',
       password: 'NovaSenhaF0rte!',
-      database: 'db_loja_games',
-      entities: [Produto, Categoria],
+      database: 'db_blogpessoal',
+      entities: [Postagem, Tema],
       synchronize: true,
       logging: true,
     }),
-    ProdutoModule,
-    CategoriaModule,
+    PostagemModule,
+    TemaModule,
   ],
   controllers: [],
   providers: [],
